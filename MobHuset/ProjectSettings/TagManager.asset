@@ -38,6 +38,9 @@ TagManager:
   - Kassa
   - Pen
   - "Sk\xE4rm"
+  - Ball
+  - Paddle
+  - PongBall
   layers:
   - Default
   - TransparentFX
