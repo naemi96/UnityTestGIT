@@ -6,7 +6,7 @@ public class GameController : MonoBehaviour
 {
     public static GameController instance { get; private set; }
 
-    //[SerializeField] private UIManager uiManager;
+    [SerializeField] private UIManager uiManager;
 
     [SerializeField] private int ScoreToWin = 2;
     [SerializeField] private int LeftScore;
@@ -35,7 +35,7 @@ public class GameController : MonoBehaviour
         LeftPaddle.isAI = RightPaddle.isAI = true;
 
         LeftScore = RightScore = 0;
-        // uiManager.UpdateScoreText(LeftScore, RightScore);
+        uiManager.UpdateScoreText(LeftScore, RightScore);
 
         ResetGame();
 
@@ -49,7 +49,7 @@ public class GameController : MonoBehaviour
         else if (side == Paddle.Side.Right)
             RightScore++;
 
-        //uiManager.UpdateScoreText(LeftScore, RightScore);
+        uiManager.UpdateScoreText(LeftScore, RightScore);
         serveSide = side;
 
         if (IsGameOver())
@@ -63,7 +63,7 @@ public class GameController : MonoBehaviour
             else
             {
                 ball.gameObject.SetActive(false);
-                //uiManager.ShowGameOver(side);
+                uiManager.ShowGameOver(side);
             }
         }
 
@@ -105,12 +105,12 @@ public class GameController : MonoBehaviour
     public void Replay()
     {
         InitializeGame();
-        //uiManager.OnGameStart();
+        uiManager.OnGameStart();
     }
 
     public void GoToMenu()
     {
-        //uiManager.ShowMenu();
+        uiManager.ShowMenu();
         DoMenu();
     }
 
@@ -128,7 +128,7 @@ public class GameController : MonoBehaviour
     {
         inMenu = false;
         LeftScore = RightScore = 0;
-        //uiManager.UpdateScoreText(LeftScore, RightScore);
+        uiManager.UpdateScoreText(LeftScore, RightScore);
         ResetGame();
 
     }

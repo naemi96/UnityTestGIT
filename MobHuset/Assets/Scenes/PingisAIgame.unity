@@ -442,7 +442,7 @@ GameObject:
   - component: {fileID: 347634853}
   - component: {fileID: 347634852}
   - component: {fileID: 347634851}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Play Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +465,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -47}
+  m_AnchoredPosition: {x: 0, y: -90}
   m_SizeDelta: {x: 173.68921, y: 43.422302}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &347634851
@@ -784,7 +784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b707498f5eed14343bb7a0820add20ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeTime: 0.5
+  fadeTime: 0.25
 --- !u!1 &511430436
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,13 +799,13 @@ GameObject:
   - component: {fileID: 511430437}
   - component: {fileID: 511430442}
   - component: {fileID: 511430441}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: PongMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &511430437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -925,7 +925,7 @@ GameObject:
   - component: {fileID: 599565606}
   - component: {fileID: 599565605}
   - component: {fileID: 599565604}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Quit Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -948,7 +948,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000076294, y: -101}
+  m_AnchoredPosition: {x: -0.0000076294, y: -150}
   m_SizeDelta: {x: 173.68921, y: 43.422302}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &599565604
@@ -1137,7 +1137,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000013351, y: -129}
+  m_AnchoredPosition: {x: 0.000013351, y: -160}
   m_SizeDelta: {x: 260.05112, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &709506491
@@ -1460,7 +1460,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000019971, y: -43}
+  m_AnchoredPosition: {x: -0.000019971, y: -90}
   m_SizeDelta: {x: 314.11746, y: 45.08728}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &826882640
@@ -2021,7 +2021,7 @@ GameObject:
   - component: {fileID: 1146625377}
   - component: {fileID: 1146625379}
   - component: {fileID: 1146625378}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Title Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2044,7 +2044,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000061989, y: 63}
+  m_AnchoredPosition: {x: -0.0000061989, y: 90}
   m_SizeDelta: {x: 328.0733, y: 78.819336}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1146625378
@@ -2173,6 +2173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a95c1de50a6622408d4fa14e44713c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiManager: {fileID: 1475524899}
   ScoreToWin: 2
   LeftScore: 0
   RightScore: 0
