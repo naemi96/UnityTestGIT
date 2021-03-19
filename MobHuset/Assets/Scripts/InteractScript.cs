@@ -42,6 +42,7 @@ public class InteractScript : MonoBehaviour {
 
     public GameObject pen;
     public GameObject lineRend;
+    public AudioSource sound;
 
     public bool[] socketStatus = new bool[] {false,false,false,false,false};
 
@@ -56,22 +57,27 @@ public class InteractScript : MonoBehaviour {
             {
                 int isActiveCord = Array.IndexOf(socketStatus, true);
 
-                if (isActiveCord == 0 )
-                    print("Gul effekt slutar :)");
-                else if (isActiveCord == 1 )
-                {
-                    laptopScreenRed.GetComponent<LaptopScreen>().ChangePlayState();
-                    laptopScreenRed.SetActive(false);
-                }
-                else if (isActiveCord == 2 )
-                {
-                    laptopScreenBlue.GetComponent<LaptopScreen>().ChangePlayState();
-                    laptopScreenBlue.SetActive(false);
-                }
-                else if (isActiveCord == 3 )
-                    print("Grön effekt slutar :)");
-                else 
-                    print("Navy effekt slutar :)");
+            if (isActiveCord == 0)
+            {
+                sound = yellowSocket.GetComponent<AudioSource>();
+                sound.Play();
+
+                print("Gul effekt slutar :)");
+            }
+            else if (isActiveCord == 1)
+            {
+                laptopScreenRed.GetComponent<LaptopScreen>().ChangePlayState();
+                laptopScreenRed.SetActive(false);
+            }
+            else if (isActiveCord == 2)
+            {
+                laptopScreenBlue.GetComponent<LaptopScreen>().ChangePlayState();
+                laptopScreenBlue.SetActive(false);
+            }
+            else if (isActiveCord == 3)
+                print("Grön effekt slutar :)");
+            else
+                print("Navy effekt slutar :)");
                     laptopScreenBlue.SetActive(true);
             }   
         else print("no active cords");
