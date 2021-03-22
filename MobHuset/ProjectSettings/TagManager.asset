@@ -41,7 +41,6 @@ TagManager:
   - Ball
   - Paddle
   - PongBall
-  - HeroesImage
   layers:
   - Default
   - TransparentFX

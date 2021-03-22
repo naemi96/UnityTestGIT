@@ -42,6 +42,7 @@ public class InteractScript : MonoBehaviour {
 
     public GameObject pen;
     public GameObject lineRend;
+    public AudioSource sound;
 
     public bool[] socketStatus = new bool[] {false,false,false,false,false};
 
@@ -58,8 +59,10 @@ public class InteractScript : MonoBehaviour {
 
             if (isActiveCord == 0)
             {
-                AudioSource sound = yellowSocket.GetComponent<AudioSource>();
+                sound = yellowSocket.GetComponent<AudioSource>();
                 sound.Play();
+
+                print("Gul effekt slutar :)");
             }
             else if (isActiveCord == 1)
             {
