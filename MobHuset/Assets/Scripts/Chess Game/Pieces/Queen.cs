@@ -10,8 +10,6 @@ public class Queen : Piece
 		get {return true;}
 	}
 
-    
-
     private Vector2Int[] directions = new Vector2Int[]
     {
         Vector2Int.left,
@@ -49,4 +47,5 @@ public class Queen : Piece
         }
         return avaliableMoves;
     }
-}
+
+  }

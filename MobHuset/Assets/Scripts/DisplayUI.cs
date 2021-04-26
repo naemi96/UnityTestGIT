@@ -21,6 +21,7 @@ public class DisplayUI : MonoBehaviour
     void Update()
     {
         FadeText();
+
     }
 
     void OnMouseOver()

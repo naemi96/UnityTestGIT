@@ -41,7 +41,8 @@ TagManager:
   - Ball
   - Paddle
   - PongBall
-  - HeroesImage
+  - Racket
+  - CoffeCup
   layers:
   - Default
   - TransparentFX

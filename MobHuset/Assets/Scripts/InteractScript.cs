@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 
 public class InteractScript : MonoBehaviour {
 
@@ -38,10 +39,15 @@ public class InteractScript : MonoBehaviour {
     public GameObject navySocket;
     public GameObject sladd;
 
+    public GameObject Coffee;
+
+
     public bool hasKey = false;
 
     public GameObject pen;
     public GameObject lineRend;
+
+    public GameObject racket;
 
     public bool[] socketStatus = new bool[] {false,false,false,false,false};
 
@@ -70,6 +76,7 @@ public class InteractScript : MonoBehaviour {
             {
                 laptopScreenBlue.GetComponent<LaptopScreen>().ChangePlayState();
                 laptopScreenBlue.SetActive(false);
+                print("Klicka på kaffekoppen för att öppna LinkedIn!");
             }
             else if (isActiveCord == 3)
                 print("Grön effekt slutar :)");
@@ -242,6 +249,8 @@ public class InteractScript : MonoBehaviour {
                     socketStatusFalse();
                     socketStatus[0] = true;
                     yellowSocket.SetActive(true);
+
+                    //Här dyker ledtrådarna upp i form av bilder på väggen :)
                 }
 
                 else if(hit.collider.CompareTag("RödSocket"))
@@ -267,6 +276,8 @@ public class InteractScript : MonoBehaviour {
                     blueSocket.SetActive(true);
                     laptopScreenBlue.SetActive(true);
                     laptopScreenBlue.GetComponent<LaptopScreen>().ChangePlayState();
+                    Coffee.SetActive(true);
+                    //Coffee.GetComponent<OpenURL>().URLopener();
                 }
 
                 else if(hit.collider.CompareTag("GrönSocket"))
@@ -288,6 +299,14 @@ public class InteractScript : MonoBehaviour {
                     socketStatus[4] = true;
                     navySocket.SetActive(true);
                 }
+
+                else if (hit.collider.CompareTag("CoffeCup"))
+                {
+
+                    print("Du flyttas nu till webbläsaren.");
+                    //Application.OpenURL("www.linkedin.com");
+                    Coffee.GetComponent<OpenURL>().URLopener();
+                }                          
 
 
                 else if(hit.collider.CompareTag("Battery"))
@@ -393,6 +412,14 @@ public class InteractScript : MonoBehaviour {
                         hit.transform.position = newPosition;
                         Quaternion targetRotation = Quaternion.Euler(-40,0, 0);
                         transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, 2 * Time.deltaTime); 
+                    }
+                }
+
+                else if (hit.collider.CompareTag("Racket"))
+                {
+                    if (hit.transform != null)
+                    {
+                        SceneManager.LoadScene(3);
                     }
                 }
 

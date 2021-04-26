@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game_Colliders.unity
     guid: edea16f4608c74dc6af28de3e13a1b18
+  - enabled: 1
+    path: Assets/Scenes/PingisAIgame.unity
+    guid: 11d442671d9ef514488c06a247600d3c
   m_configObjects: {}

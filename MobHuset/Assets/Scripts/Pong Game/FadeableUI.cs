@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(CanvasGroup))]
 public class FadeableUI : MonoBehaviour
 {
     private CanvasGroup canvasGroup;

@@ -16,6 +16,7 @@ public class Board : MonoBehaviour
     private ChessGameController chessController;
     private SquareSelectorCreator squareSelector;
 
+    
 
     private void Awake()
     {
@@ -98,8 +99,7 @@ public class Board : MonoBehaviour
             UpdateBoardOnPieceMove(coords, piece.occupiedSquare, piece, null);
             selectedPiece.MovePiece(coords);
             DeselectPiece();
-            // avaktivera skript för bräde
-            // trigga event
+
         }
         else 
         {
@@ -115,6 +115,8 @@ public class Board : MonoBehaviour
     private void rightMove()
     {
         print("Check mate!!");
+
+        GetComponent<TestText>().flag = false;
     }
 
     private void EndTurn()

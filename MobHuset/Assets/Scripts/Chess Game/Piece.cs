@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(MaterialSetter))]
 [RequireComponent(typeof(IObjectTweener))]
 
 public abstract class Piece : MonoBehaviour
 {
+
 	[SerializeField] private MaterialSetter materialSetter;
 	public Board board { protected get; set; }
 	public Vector2Int occupiedSquare { get; set; }
@@ -18,6 +20,7 @@ public abstract class Piece : MonoBehaviour
 	abstract public bool isQueen { get; }
 
 	private IObjectTweener tweener;
+
 
 	public abstract List<Vector2Int> SelectAvaliableSquares();
 

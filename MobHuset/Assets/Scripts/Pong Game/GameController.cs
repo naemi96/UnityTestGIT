@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -26,6 +27,8 @@ public class GameController : MonoBehaviour
         instance = this;
         ball = GameObject.FindGameObjectWithTag("PongBall").GetComponent<PongBall>();
 
+        Cursor.lockState = CursorLockMode.None;
+
         DoMenu();
     }
 
@@ -33,6 +36,8 @@ public class GameController : MonoBehaviour
     {
         inMenu = true;
         LeftPaddle.isAI = RightPaddle.isAI = true;
+        
+        Cursor.visible = true; //test
 
         LeftScore = RightScore = 0;
         uiManager.UpdateScoreText(LeftScore, RightScore);
@@ -116,7 +121,9 @@ public class GameController : MonoBehaviour
 
     public void Quit()
     {
-        Application.Quit();
+        //Application.Quit();
+
+        SceneManager.LoadScene(2);
 
 
 #if UNITY_EDITOR
@@ -130,6 +137,6 @@ public class GameController : MonoBehaviour
         LeftScore = RightScore = 0;
         uiManager.UpdateScoreText(LeftScore, RightScore);
         ResetGame();
-
+        uiManager.OnGameStart();
     }
 }

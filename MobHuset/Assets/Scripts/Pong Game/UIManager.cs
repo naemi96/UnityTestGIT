@@ -28,13 +28,13 @@ public class UIManager : MonoBehaviour
     public void OnGameStart()
     {
         menuUI.FadeOut(false);
-        gameOverUI.FadeOut(false);
+        gameOverUI.FadeOut(true);
     }
 
     public void ShowMenu()
     {
         gameOverUI.FadeOut(false);
-        menuUI.FadeIn(false);
+        menuUI.FadeIn(true);
     }
 
     public void ShowGameOver(Paddle.Side side)
