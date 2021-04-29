@@ -41,6 +41,10 @@ public class InteractScript : MonoBehaviour {
 
     public GameObject Coffee;
 
+    public GameObject Rapport1;
+    public GameObject Rapport2;
+    public GameObject Rapport3;
+
 
     public bool hasKey = false;
 
@@ -186,18 +190,19 @@ public class InteractScript : MonoBehaviour {
             
             if(Physics.Raycast(ray, out hit, 1000))
             {
-                if(hit.collider.CompareTag("Door"))
+                if (hit.collider.CompareTag("Door"))
                 {
-                    if (hasKey) {
+                    if (hasKey)
+                    {
                         hit.collider.transform.GetComponent<DoorScript>().ChangeDoorState();
                         inventory.RemoveItem(key);
                     }
-                    else 
+                    else
                     {
                         doorText.SetActive(true);
                         StartCoroutine("WaitForSecDoorText");
                     }
-                    
+
                 }
 
                 else if (hit.collider.CompareTag("Pen"))
@@ -206,7 +211,7 @@ public class InteractScript : MonoBehaviour {
                     lineRend.SetActive(true);
                 }
 
-                else if(hit.collider.CompareTag("Key"))
+                else if (hit.collider.CompareTag("Key"))
                 {
                     IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
                     if (item != null)
@@ -214,11 +219,11 @@ public class InteractScript : MonoBehaviour {
                         inventory.AddItem(item);
                         hasKey = true;
                         print("key picked up!");
-                    
+
                     }
                 }
 
-                else if(hit.collider.CompareTag("Selectable"))
+                else if (hit.collider.CompareTag("Selectable"))
                 {
                     IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
 
@@ -231,19 +236,19 @@ public class InteractScript : MonoBehaviour {
                 }
 
 
-                else if(hit.collider.CompareTag("RotateButton"))
+                else if (hit.collider.CompareTag("RotateButton"))
                 {
                     rc.ChangeRotateState();
                 }
 
-                else if(hit.collider.CompareTag("On/Off"))
+                else if (hit.collider.CompareTag("On/Off"))
                 {
                     rc.ChangeBatteryState();
                 }
 
-                else if(hit.collider.CompareTag("GulSocket"))
-                { 
-                    print ("Nu trycker du på den gula.");
+                else if (hit.collider.CompareTag("GulSocket"))
+                {
+                    print("Nu trycker du på den gula.");
                     deactivateCords();
                     deactivateCordEffects();
                     socketStatusFalse();
@@ -253,9 +258,9 @@ public class InteractScript : MonoBehaviour {
                     //Här dyker ledtrådarna upp i form av bilder på väggen :)
                 }
 
-                else if(hit.collider.CompareTag("RödSocket"))
-                { 
-                    print ("Nu trycker du på den röda.");
+                else if (hit.collider.CompareTag("RödSocket"))
+                {
+                    print("Nu trycker du på den röda.");
                     deactivateCords();
                     deactivateCordEffects();
                     socketStatusFalse();
@@ -266,9 +271,9 @@ public class InteractScript : MonoBehaviour {
                 }
 
 
-                else if(hit.collider.CompareTag("BlåSocket"))
-                { 
-                    print ("Nu trycker du på den blåa.");
+                else if (hit.collider.CompareTag("BlåSocket"))
+                {
+                    print("Nu trycker du på den blåa.");
                     deactivateCords();
                     deactivateCordEffects();
                     socketStatusFalse();
@@ -280,8 +285,8 @@ public class InteractScript : MonoBehaviour {
                     //Coffee.GetComponent<OpenURL>().URLopener();
                 }
 
-                else if(hit.collider.CompareTag("GrönSocket"))
-                { 
+                else if (hit.collider.CompareTag("GrönSocket"))
+                {
                     print("Nu trycker du på den gula.");
                     deactivateCords();
                     deactivateCordEffects();
@@ -290,9 +295,9 @@ public class InteractScript : MonoBehaviour {
                     greenSocket.SetActive(true);
                 }
 
-                else if(hit.collider.CompareTag("NavySocket"))
-                { 
-                    print ("Nu trycker du på den gula.");
+                else if (hit.collider.CompareTag("NavySocket"))
+                {
+                    print("Nu trycker du på den gula.");
                     deactivateCords();
                     deactivateCordEffects();
                     socketStatusFalse();
@@ -306,10 +311,31 @@ public class InteractScript : MonoBehaviour {
                     print("Du flyttas nu till webbläsaren.");
                     //Application.OpenURL("www.linkedin.com");
                     Coffee.GetComponent<OpenURL>().URLopener();
-                }                          
+                }
+
+                else if (hit.collider.CompareTag("Rapport1"))
+                {
+
+                    print("Du flyttas nu till webbläsaren.");
+                    Application.OpenURL("https://www.ri.se/sites/default/files/2021-03/Slutrapport_VSDMobilitetFastigheter_2021.pdf");
+                }
+
+                else if (hit.collider.CompareTag("Rapport2"))
+                {
+
+                    print("Du flyttas nu till webbläsaren.");
+                    Application.OpenURL("https://malmo.se/download/18.492e6d8f17575ea6e8935ef6/1613991082001/Mobilitet%20f%C3%B6r%20Malm%C3%B6%20-%20Mobilitets%C3%A5tg%C3%A4rder%20och%20utformning%20av%20parkering%20f%C3%B6r%20fastighets%C3%A4gar.webb.pdf");
+                }
+
+                else if (hit.collider.CompareTag("Rapport3"))
+                {
+
+                    print("Du flyttas nu till webbläsaren.");
+                    Application.OpenURL("https://www.almega.se/app/uploads/sites/6/2021/03/innovation-for-mobilitet-final-web.pdf");
+                }
 
 
-                else if(hit.collider.CompareTag("Battery"))
+                else if (hit.collider.CompareTag("Battery"))
                 {
                     //hit.collider.transform.GetComponent<Battery>().changeClickState();
                     IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
@@ -318,12 +344,12 @@ public class InteractScript : MonoBehaviour {
                         inventory.AddItem(item);
                         batteryPickUpText.SetActive(true);
                         StartCoroutine("WaitForSecBatteryPickUp");
-                        
+
                         TV.GetComponent<TV>().ChangePlayState();
 
-                     //   FloatingText.SetActive(true);
-                      //  FloatingText.GetComponent<ClueText>().ChangePlayState();
-                       // StartCoroutine("WaitForSec");
+                        //   FloatingText.SetActive(true);
+                        //  FloatingText.GetComponent<ClueText>().ChangePlayState();
+                        // StartCoroutine("WaitForSec");
                     }
                 }
                 else if (hit.collider.CompareTag("Button"))
@@ -336,62 +362,62 @@ public class InteractScript : MonoBehaviour {
                     hit.collider.transform.GetComponent<RedButton2>().ChangeClickState();
                 }
 
-                else if(hit.collider.CompareTag("Book1"))
+                else if (hit.collider.CompareTag("Book1"))
                 {
-                    if(hit.transform != null)
+                    if (hit.transform != null)
                     {
                         Vector3 newPosition = hit.transform.position;
-                        newPosition.x = newPosition.x +3;
+                        newPosition.x = newPosition.x + 3;
                         hit.transform.position = newPosition;
                         bookText1.SetActive(true);
                         StartCoroutine("WaitForSecBook");
                     }
                 }
-                else if(hit.collider.CompareTag("Book2"))
+                else if (hit.collider.CompareTag("Book2"))
                 {
-                    if(hit.transform != null)
+                    if (hit.transform != null)
                     {
                         Vector3 newPosition = hit.transform.position;
-                        newPosition.x = newPosition.x +3;
+                        newPosition.x = newPosition.x + 3;
                         hit.transform.position = newPosition;
                         bookText2.SetActive(true);
                         StartCoroutine("WaitForSecBook");
                     }
                 }
 
-                else if(hit.collider.CompareTag("Book3"))
+                else if (hit.collider.CompareTag("Book3"))
                 {
-                    if(hit.transform != null)
+                    if (hit.transform != null)
                     {
                         Vector3 newPosition = hit.transform.position;
-                        newPosition.x = newPosition.x +3;
+                        newPosition.x = newPosition.x + 3;
                         hit.transform.position = newPosition;
                         bookText3.SetActive(true);
                         StartCoroutine("WaitForSecBook");
                     }
                 }
 
-                else if(hit.collider.CompareTag("Book4"))
+                else if (hit.collider.CompareTag("Book4"))
                 {
-                    if(hit.transform != null)
+                    if (hit.transform != null)
                     {
                         Vector3 newPosition = hit.transform.position;
-                        newPosition.x = newPosition.x +3;
+                        newPosition.x = newPosition.x + 3;
                         hit.transform.position = newPosition;
                         bookText4.SetActive(true);
                         StartCoroutine("WaitForSecBook");
                     }
                 }
 
-                else if(hit.collider.CompareTag("BlackBox"))
+                else if (hit.collider.CompareTag("BlackBox"))
                 {
-                    Vector3 defaultPosition = new Vector3(-75f,6.5f,111f);
-                    if(hit.transform.position == defaultPosition)
+                    Vector3 defaultPosition = new Vector3(-75f, 6.5f, 111f);
+                    if (hit.transform.position == defaultPosition)
                     {
-                        if(hit.transform != null)
-                        {   
+                        if (hit.transform != null)
+                        {
                             Vector3 newPosition = hit.transform.position;
-                            newPosition.x = newPosition.x +7;
+                            newPosition.x = newPosition.x + 7;
                             hit.transform.position = newPosition;
 
                             Vector3 batPosition = new Vector3(-78f, 4.89f, 109f);
@@ -403,15 +429,15 @@ public class InteractScript : MonoBehaviour {
                     }
                 }
 
-                else if(hit.collider.CompareTag("BlackBoxLid"))
-                {   
-                    if(hit.transform != null)
+                else if (hit.collider.CompareTag("BlackBoxLid"))
+                {
+                    if (hit.transform != null)
                     {
                         Vector3 newPosition = hit.transform.position;
-                        newPosition.z = newPosition.z +5;
+                        newPosition.z = newPosition.z + 5;
                         hit.transform.position = newPosition;
-                        Quaternion targetRotation = Quaternion.Euler(-40,0, 0);
-                        transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, 2 * Time.deltaTime); 
+                        Quaternion targetRotation = Quaternion.Euler(-40, 0, 0);
+                        transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, 2 * Time.deltaTime);
                     }
                 }
 
@@ -425,35 +451,37 @@ public class InteractScript : MonoBehaviour {
 
                 else if (hit.collider.CompareTag("BatteryPack"))
                 {
-                
-                  // if battery is in inventory, do something
-                  //else print i need something for this to work
-                  if (inventory.mItems.Contains(batRC1))//(IInventoryItem.get("Battery")))
-                  {
-                      inventory.RemoveItem(batRC1);
-                      battery1RC.SetActive(true);
-                      if(battery2RC.activeSelf){
-                        rc.ChangeRotateState();
+
+                    // if battery is in inventory, do something
+                    //else print i need something for this to work
+                    if (inventory.mItems.Contains(batRC1))//(IInventoryItem.get("Battery")))
+                    {
+                        inventory.RemoveItem(batRC1);
+                        battery1RC.SetActive(true);
+                        if (battery2RC.activeSelf)
+                        {
+                            rc.ChangeRotateState();
+                        }
+
+
+
                     }
-
-
-                    
-                  }
-                   else if (inventory.mItems.Contains(batRC2))
-                  {
-                      inventory.RemoveItem(batRC2);
-                      battery2RC.SetActive(true);
-                      if(battery1RC.activeSelf) {
-                        rc.ChangeRotateState();
+                    else if (inventory.mItems.Contains(batRC2))
+                    {
+                        inventory.RemoveItem(batRC2);
+                        battery2RC.SetActive(true);
+                        if (battery1RC.activeSelf)
+                        {
+                            rc.ChangeRotateState();
+                        }
+                        // print("This is the second battery!");
                     }
-                     // print("This is the second battery!");
-                  }
-                //else if ()
+                    //else if ()
 
-                  else 
-                  {
-                    print ("You don't have anything in your inventory that works here.");
-                  }
+                    else
+                    {
+                        print("You don't have anything in your inventory that works here.");
+                    }
                 }
 
                 }

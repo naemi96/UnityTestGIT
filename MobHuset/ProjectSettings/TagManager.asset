@@ -43,6 +43,9 @@ TagManager:
   - PongBall
   - Racket
   - CoffeCup
+  - Rapport1
+  - Rapport2
+  - Rapport3
   layers:
   - Default
   - TransparentFX
