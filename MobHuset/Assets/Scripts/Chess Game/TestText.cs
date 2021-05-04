@@ -19,7 +19,7 @@ public class TestText : MonoBehaviour
         }
         else
         {
-            test.text = "5";
+            test.text = "Den sista siffran är: 5";
         }
     }
 }
