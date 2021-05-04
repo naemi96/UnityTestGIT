@@ -46,6 +46,10 @@ TagManager:
   - Rapport1
   - Rapport2
   - Rapport3
+  - Radio
+  - RadioMenu
+  - Rapport4
+  - RadioButton1
   layers:
   - Default
   - TransparentFX

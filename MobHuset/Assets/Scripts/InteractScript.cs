@@ -41,9 +41,13 @@ public class InteractScript : MonoBehaviour {
 
     public GameObject Coffee;
 
+    public GameObject Radio;
+    public GameObject RadioMenu;
+
     public GameObject Rapport1;
     public GameObject Rapport2;
     public GameObject Rapport3;
+    public GameObject Rapport4;
 
 
     public bool hasKey = false;
@@ -334,6 +338,19 @@ public class InteractScript : MonoBehaviour {
                     Application.OpenURL("https://www.almega.se/app/uploads/sites/6/2021/03/innovation-for-mobilitet-final-web.pdf");
                 }
 
+                else if (hit.collider.CompareTag("Rapport4"))
+                {
+
+                    print("Du flyttas nu till webbläsaren.");
+                    Application.OpenURL("https://utveckling.skane.se/siteassets/publikationer_dokument/mobilitetsplan_low.pdf");
+                }
+
+                else if (hit.collider.CompareTag("Radio"))
+                {
+                    RadioMenu.SetActive(true);
+                    Cursor.lockState = CursorLockMode.Confined;
+
+                }
 
                 else if (hit.collider.CompareTag("Battery"))
                 {
