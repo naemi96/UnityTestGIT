@@ -369,22 +369,20 @@ public class InteractScript : MonoBehaviour {
 
                 else if(hit.collider.CompareTag("BlackBox"))
                 {
-                    Vector3 defaultPosition = new Vector3(-75f,6.5f,111f);
-                    if(hit.transform.position == defaultPosition)
-                    {
-                        if(hit.transform != null)
-                        {   
+                        if (hit.transform != null)
+                        {
                             Vector3 newPosition = hit.transform.position;
-                            newPosition.x = newPosition.x +7;
+                            newPosition.x = newPosition.x + 6;
                             hit.transform.position = newPosition;
+                            //Quaternion targetRotation = Quaternion.Euler(-40, 0, 0);
+                           // transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, 2 * Time.deltaTime);
 
-                            Vector3 batPosition = new Vector3(-78f, 4.89f, 109f);
+                        Vector3 batPosition = new Vector3(-78f, 4.89f, 109f);
                             batPosition.x = -72f;
                             batPosition.y = 6f;
                             battery.transform.position = batPosition;
                             blackBox.GetComponent<BoxCollider>().enabled = false;
                         }
-                    }
                 }
 
                 else if(hit.collider.CompareTag("BlackBoxLid"))

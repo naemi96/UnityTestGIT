@@ -79,7 +79,7 @@ public class keypad : MonoBehaviour
 
             if (doorOpen)
             {
-                var newRot = Quaternion.RotateTowards(doorHinge.rotation, Quaternion.Euler(0, 90, 0), Time.deltaTime * 5000);
+                var newRot = Quaternion.RotateTowards(doorHinge.rotation, Quaternion.Euler(0, 90, 0), Time.deltaTime * 50000);
                 doorHinge.rotation = newRot;
                 key.GetComponent<BoxCollider>().enabled = true;
             }

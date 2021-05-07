@@ -6,8 +6,6 @@ public class RedButton : MonoBehaviour  {
     
     public bool clicked = false;
     public GameObject libraryLampTurnOn;
-    public GameObject libraryLampTurnOn1;
-    public GameObject libraryLampTurnOn2;
     public GameObject libraryLampMaterial;
     public GameObject libraryLampMaterial1;
     public Material lightOn;
@@ -32,8 +30,7 @@ public class RedButton : MonoBehaviour  {
             libraryLampMaterial.GetComponent<MeshRenderer>().material = lightOn;
             libraryLampMaterial1.GetComponent<MeshRenderer>().material = lightOn;
             libraryLampTurnOn.SetActive(true);
-            libraryLampTurnOn1.SetActive(true);
-            libraryLampTurnOn2.SetActive(true);
+
         }
 
 }
