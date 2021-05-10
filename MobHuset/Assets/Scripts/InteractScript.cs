@@ -16,6 +16,7 @@ public class InteractScript : MonoBehaviour {
     public Key key;
     public GameObject doorText;
 
+    public GameObject libraryArrow;
     public GameObject bookText1;
     public GameObject bookText2;
     public GameObject bookText3;
@@ -324,6 +325,7 @@ public class InteractScript : MonoBehaviour {
                 {
                     if(hit.transform != null)
                     {
+                        libraryArrow.SetActive(false);
                         Vector3 newPosition = hit.transform.position;
                         newPosition.x = newPosition.x +3;
                         hit.transform.position = newPosition;
@@ -335,6 +337,7 @@ public class InteractScript : MonoBehaviour {
                 {
                     if(hit.transform != null)
                     {
+                        libraryArrow.SetActive(false);
                         Vector3 newPosition = hit.transform.position;
                         newPosition.x = newPosition.x +3;
                         hit.transform.position = newPosition;
@@ -347,6 +350,7 @@ public class InteractScript : MonoBehaviour {
                 {
                     if(hit.transform != null)
                     {
+                        libraryArrow.SetActive(false);
                         Vector3 newPosition = hit.transform.position;
                         newPosition.x = newPosition.x +3;
                         hit.transform.position = newPosition;
@@ -359,6 +363,7 @@ public class InteractScript : MonoBehaviour {
                 {
                     if(hit.transform != null)
                     {
+                        libraryArrow.SetActive(false);
                         Vector3 newPosition = hit.transform.position;
                         newPosition.x = newPosition.x +3;
                         hit.transform.position = newPosition;

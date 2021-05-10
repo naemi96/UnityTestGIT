@@ -10,6 +10,7 @@ public class rcCar : MonoBehaviour
 
     [SerializeField] private Material lightMaterial;
 
+    //set active lamps in lounge?
     public GameObject MainPL;
 
     //This is the car that should start driving which the player should follow.

@@ -15,7 +15,7 @@ public class SelectionManager : MonoBehaviour
     public bool isHighlighted = false;
     public bool isHighlightedKassa = false;
 
-    public GameObject penText;
+  //  public GameObject penText;
     public bool isHighlightedPen = false;
 
     public GameObject whiteboardText;
@@ -34,16 +34,16 @@ public class SelectionManager : MonoBehaviour
         }
     }
 
-    IEnumerator WaitForSecPen()
+   /* IEnumerator WaitForSecPen()
     {
         if (!isHighlighted)
         {
             isHighlighted = true;
             yield return new WaitForSeconds(1);
             isHighlighted = false;
-            penText.SetActive(false);
+          //  penText.SetActive(false);
         }
-    }
+    } */
 
     IEnumerator WaitForSecWhiteboard()
     {
@@ -199,15 +199,15 @@ public class SelectionManager : MonoBehaviour
             }
         }
 
-        if (Physics.Raycast(ray, out hit))
-        {
-            var selection = hit.transform;
-            if (selection.CompareTag("Pen"))
-            {
-                penText.SetActive(true);
-                StartCoroutine("WaitForSecPen");
-            }
-        }
+        //if (Physics.Raycast(ray, out hit))
+      //  {
+       //     var selection = hit.transform;
+        //    if (selection.CompareTag("Pen"))
+        //    {
+        //        penText.SetActive(true);
+        //        StartCoroutine("WaitForSecPen");
+        //    }
+     //   }
 
         if (Physics.Raycast(ray, out hit))
         {

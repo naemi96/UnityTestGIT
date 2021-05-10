@@ -6,11 +6,10 @@ public class RedButton2 : MonoBehaviour
 {
 
     public bool clicked = false;
-    public GameObject SL1;
-    public GameObject SL2;
-    public GameObject PL;
     public GameObject Text3;
-    public GameObject o1Lights;
+    public GameObject hintLight;
+    public GameObject femfyra;
+    public GameObject office1Lights;
 
 
      public void ChangeClickState()
@@ -31,11 +30,11 @@ public class RedButton2 : MonoBehaviour
     {
         if (clicked)
         {
-            SL1.SetActive(true);
-            SL2.SetActive(true);
-            PL.SetActive(true);
             Text3.SetActive(true);
-            o1Lights.SetActive(true);
+           
+            hintLight.SetActive(true);
+            femfyra.SetActive(true);
+            office1Lights.SetActive(true);
         }
         
     }
