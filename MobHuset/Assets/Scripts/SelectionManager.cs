@@ -15,6 +15,8 @@ public class SelectionManager : MonoBehaviour
     public bool isHighlighted = false;
     public bool isHighlightedKassa = false;
 
+    public GameObject printer;
+
   //  public GameObject penText;
     public bool isHighlightedPen = false;
 
@@ -133,7 +135,19 @@ public class SelectionManager : MonoBehaviour
         }
 
 
-
+        if (Physics.Raycast(ray, out hit))
+        {
+            var selection = hit.transform;
+            if (selection.CompareTag("Printer"))
+            {
+                var selectionRenderer = selection.GetComponent<Renderer>();
+            if (selectionRenderer != null)
+            {
+                selectionRenderer.material = highlightMaterial;
+            }
+            _selection = selection;
+            }
+        }
         if (Physics.Raycast(ray, out hit))
         {
             var selection = hit.transform;

@@ -7,6 +7,7 @@ public class rcCar : MonoBehaviour
     public RC rc;
     public GameObject headlights;
     public GameObject frontlights;
+    private Rigidbody rb;
 
     [SerializeField] private Material lightMaterial;
 
@@ -20,7 +21,7 @@ public class rcCar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = gameObject.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -29,6 +30,7 @@ public class rcCar : MonoBehaviour
         if (rc.hasBatteries == true)
         
         {
+            rb.constraints = RigidbodyConstraints.None;
             GameObject[] mLights = GameObject.FindGameObjectsWithTag("GLow");
             foreach (GameObject mLight in mLights)
             {

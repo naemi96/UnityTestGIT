@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 
 public class InteractScript : MonoBehaviour {
 
@@ -39,11 +40,19 @@ public class InteractScript : MonoBehaviour {
     public GameObject navySocket;
     public GameObject sladd;
 
+
+    public GameObject printer;
+    public GameObject coffee;
+
     public bool hasKey = false;
 
     public GameObject pen;
     public GameObject lineRend;
     public AudioSource sound;
+
+    public GameObject racket;
+
+    
 
     public bool[] socketStatus = new bool[] {false,false,false,false,false};
 
@@ -62,8 +71,7 @@ public class InteractScript : MonoBehaviour {
             {
                 sound = yellowSocket.GetComponent<AudioSource>();
                 sound.Play();
-
-                print("Gul effekt slutar :)");
+                //heroes.SetActive(false);
             }
             else if (isActiveCord == 1)
             {
@@ -77,11 +85,12 @@ public class InteractScript : MonoBehaviour {
             }
             else if (isActiveCord == 3)
                 print("Grön effekt slutar :)");
+                sound = greenSocket.GetComponent<AudioSource>();
+                laptopScreenGreen.SetActive(false);
+            }
             else
                 print("Navy effekt slutar :)");
-                    laptopScreenBlue.SetActive(true);
-            }   
-        else print("no active cords");
+                   // laptopScreenBlue.SetActive(true);
     }
 
     void deactivateCords()
@@ -98,6 +107,12 @@ public class InteractScript : MonoBehaviour {
     public GameObject laptopScreenBlue;
     public GameObject laptopScreenRed;
     public GameObject laptopScreenNavy;
+    public GameObject laptopScreenGreen;
+    public GameObject pingpongLights;
+    public GameObject chessLights;
+    public GameObject arrowToPlay;
+
+   // public GameObject heroes;
 
    // public GameObject FloatingText;
 
@@ -245,6 +260,7 @@ public class InteractScript : MonoBehaviour {
                     deactivateCordEffects();
                     socketStatusFalse();
                     socketStatus[0] = true;
+                //    heroes.SetActive(true);
                     yellowSocket.SetActive(true);
                 }
 
@@ -275,17 +291,21 @@ public class InteractScript : MonoBehaviour {
 
                 else if(hit.collider.CompareTag("GrönSocket"))
                 { 
-                    print("Nu trycker du på den gula.");
+                    print("Nu trycker du på den gröna.");
                     deactivateCords();
                     deactivateCordEffects();
                     socketStatusFalse();
                     socketStatus[3] = true;
                     greenSocket.SetActive(true);
+                    laptopScreenGreen.SetActive(true);
+                    pingpongLights.SetActive(true);
+                    chessLights.SetActive(true);
+                    arrowToPlay.SetActive(true);
                 }
 
                 else if(hit.collider.CompareTag("NavySocket"))
                 { 
-                    print ("Nu trycker du på den gula.");
+                    print ("Nu trycker du på den blåa.");
                     deactivateCords();
                     deactivateCordEffects();
                     socketStatusFalse();
@@ -293,6 +313,28 @@ public class InteractScript : MonoBehaviour {
                     navySocket.SetActive(true);
                 }
 
+                else if (hit.collider.CompareTag("Coffee"))
+                {
+                    print("Du flyttas nu till webbläsaren.");
+                    //Application.OpenURL("www.linkedin.com");
+                    coffee.GetComponent<OpenURL>().URLopener();
+                }
+
+                else if (hit.collider.CompareTag("Racket"))
+                {
+                    if (hit.transform != null)
+                    {
+                        SceneManager.LoadScene(3);
+                    }
+                }
+
+                else if (hit.collider.CompareTag("Printer"))
+                {
+                    if (hit.transform != null)
+                    {
+                        printer.GetComponent<AudioSource>().Play();
+                    }
+                }
 
                 else if(hit.collider.CompareTag("Battery"))
                 {
@@ -314,6 +356,7 @@ public class InteractScript : MonoBehaviour {
                 else if (hit.collider.CompareTag("Button"))
                 {
                     hit.collider.transform.GetComponent<RedButton>().ChangeClickState();
+                    libraryArrow.SetActive(true);
                 }
 
                 else if (hit.collider.CompareTag("Button2"))
@@ -325,11 +368,11 @@ public class InteractScript : MonoBehaviour {
                 {
                     if(hit.transform != null)
                     {
-                        libraryArrow.SetActive(false);
                         Vector3 newPosition = hit.transform.position;
                         newPosition.x = newPosition.x +3;
                         hit.transform.position = newPosition;
                         bookText1.SetActive(true);
+                        libraryArrow.SetActive(false);
                         StartCoroutine("WaitForSecBook");
                     }
                 }
@@ -337,7 +380,6 @@ public class InteractScript : MonoBehaviour {
                 {
                     if(hit.transform != null)
                     {
-                        libraryArrow.SetActive(false);
                         Vector3 newPosition = hit.transform.position;
                         newPosition.x = newPosition.x +3;
                         hit.transform.position = newPosition;
@@ -350,7 +392,6 @@ public class InteractScript : MonoBehaviour {
                 {
                     if(hit.transform != null)
                     {
-                        libraryArrow.SetActive(false);
                         Vector3 newPosition = hit.transform.position;
                         newPosition.x = newPosition.x +3;
                         hit.transform.position = newPosition;
@@ -363,7 +404,6 @@ public class InteractScript : MonoBehaviour {
                 {
                     if(hit.transform != null)
                     {
-                        libraryArrow.SetActive(false);
                         Vector3 newPosition = hit.transform.position;
                         newPosition.x = newPosition.x +3;
                         hit.transform.position = newPosition;

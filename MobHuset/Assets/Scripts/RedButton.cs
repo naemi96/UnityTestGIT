@@ -9,7 +9,7 @@ public class RedButton : MonoBehaviour  {
     public GameObject libraryLampMaterial;
     public GameObject libraryLampMaterial1;
     public Material lightOn;
-    public GameObject arrow;
+ //   public GameObject arrow;
 
 
     void Start ()
@@ -28,7 +28,7 @@ public class RedButton : MonoBehaviour  {
     {
         if(clicked)
         {
-            arrow.SetActive(true);
+          //  arrow.SetActive(true);
             libraryLampMaterial.GetComponent<MeshRenderer>().material = lightOn;
             libraryLampMaterial1.GetComponent<MeshRenderer>().material = lightOn;
             libraryLampTurnOn.SetActive(true);

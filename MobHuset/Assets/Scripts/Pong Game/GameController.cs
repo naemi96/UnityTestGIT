@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -26,6 +27,8 @@ public class GameController : MonoBehaviour
         instance = this;
         ball = GameObject.FindGameObjectWithTag("PongBall").GetComponent<PongBall>();
 
+        Cursor.lockState = CursorLockMode.None;
+
         DoMenu();
     }
 
@@ -33,12 +36,13 @@ public class GameController : MonoBehaviour
     {
         inMenu = true;
         LeftPaddle.isAI = RightPaddle.isAI = true;
+        
+        Cursor.visible = true; //test
 
         LeftScore = RightScore = 0;
         uiManager.UpdateScoreText(LeftScore, RightScore);
 
         ResetGame();
-
     }
 
     public void Score(Paddle.Side side)
@@ -93,7 +97,6 @@ public class GameController : MonoBehaviour
 
     }
 
-    #region UI Methods
     public void startGame()
     {
         RightPaddle.isAI = true;
@@ -114,22 +117,20 @@ public class GameController : MonoBehaviour
         DoMenu();
     }
 
-    public void Quit()
+    public void QuitPongGame()
     {
-        Application.Quit();
+        //Application.Quit();
 
-
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#endif
+        SceneManager.LoadScene(2);
     }
-    #endregion
+
     private void InitializeGame()
     {
         inMenu = false;
         LeftScore = RightScore = 0;
         uiManager.UpdateScoreText(LeftScore, RightScore);
         ResetGame();
-
+        uiManager.OnGameStart();
     }
 }
+
